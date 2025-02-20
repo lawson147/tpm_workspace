@@ -1,19 +1,13 @@
-dir=owner_lawsonzhang
+source env.sh
 
-if [ ! -d ${dir} ]; then
-    mkdir owner_lawsonzhang
+if [ ! -d ${primary_key_path} ]; then
+    mkdir -p ${primary_key_path}
 fi
-cd owner_lawsonzhang
 
-if [ ! -f primary.ctx ]; then
-    tpm2_createprimary -C o -c primary.ctx --creation-data primary.creationdata --template-data primary.templatedata
+if [ ! -f ${primary_key_ctx} ]; then
+    set -x
+    tpm2_createprimary -c ${primary_key_ctx} -f ${format} -o ${cretificate}
+    set +x
 else
-    echo "Do you need to recreate the primary.ctx?"
-    read -p "y/n" is_recreate
-    if [ ${is_recreate} == "y" ]; then
-        tpm2_createprimary -C o -c primary.ctx --creation-data primary.creationdata --template-data primary.templatedata -u unique/unique.hex
-    else
-        echo ${is_recreate}
-        exit 0
-    fi
+    echo ${primary_key_name} has been existed!
 fi
