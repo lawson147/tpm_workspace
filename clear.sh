@@ -14,3 +14,7 @@ rm *.digest
 rm *.raw
 rm *.rssa
 rm *.signed
+
+rm pcr.*
+
+rm *.blob
