@@ -1,6 +1,14 @@
 source env.sh
 source key2_header.sh
 
+this_key_path=${key2_path}
+this_key_name=${key2_name}
+
+this_key_path=${key2_path}
+this_key_ctx=${key2_ctx}
+this_key_pub=${key2_pub}
+this_key_priv=${key2_priv}
+
 # case 1: Sign with the TPM and verify with OSSL
 case1() {
     # related files

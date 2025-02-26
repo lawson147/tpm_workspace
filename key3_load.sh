@@ -1,5 +1,12 @@
 source env.sh
 source key3_header.sh
+this_key_path=${key3_path}
+this_key_name=${key3_name}
+
+this_key_path=${key3_path}
+this_key_ctx=${key3_ctx}
+this_key_pub=${key3_pub}
+this_key_priv=${key3_priv}
 
 # Check directory
 if [ ! -d ${this_key_path} ]; then

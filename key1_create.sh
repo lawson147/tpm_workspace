@@ -1,5 +1,16 @@
 # This key1_sym is a symmetry key, under the primary key
+set -x
+
 source env.sh
+source key1_header.sh
+
+this_key_path=${key1_path}
+this_key_name=${key1_name}
+
+this_key_path=${key1_path}
+this_key_ctx=${key1_ctx}
+this_key_pub=${key1_pub}
+this_key_priv=${key1_priv}
 
 if [ ! -f ${primary_key_ctx} ]; then
     echo Create primary_key firstly please!
