@@ -1,4 +1,5 @@
 source env.sh
+set -x
 
 if [ ! -d ${primary_key_path} ]; then
     mkdir -p ${primary_key_path}

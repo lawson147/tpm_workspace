@@ -10,6 +10,7 @@ dec=secret.dec
 rm secret.*
 
 # Prepare and do it
+this_key_ctx=${key1_ctx}
 echo "Hello World" > secret.txt
 
 tpm2_encryptdecrypt -c ${this_key_ctx} -o ${enc} ${plain}
