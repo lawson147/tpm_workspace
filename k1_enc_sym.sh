@@ -1,5 +1,6 @@
+set -x
 source env.sh
-source key1_header.sh
+source k1_header.sh
 
 # related files
 plain=secret.txt
@@ -13,6 +14,6 @@ rm secret.*
 this_key_ctx=${key1_ctx}
 echo "Hello World" > secret.txt
 
-tpm2_encryptdecrypt -c ${this_key_ctx} -o ${enc} ${plain}
-tpm2_encryptdecrypt -d -c ${this_key_ctx} -o ${dec} ${enc}
+tpm2_encryptdecrypt ${tcti} -c ${this_key_ctx} -o ${enc} ${plain}
+tpm2_encryptdecrypt ${tcti} -d -c ${this_key_ctx} -o ${dec} ${enc}
 cat ${dec}

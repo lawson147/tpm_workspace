@@ -35,16 +35,16 @@ fi
 if [ ! -f ${parent_key_priv} ]; then
     set -x
     # normal
-    # tpm2_create -C ${primary_key_ctx} -G rsa -u ${parent_key_pub} -r ${parent_key_priv} -a ${attribution}
+    # tpm2_create ${tcti} -C ${primary_key_ctx} -G rsa -u ${parent_key_pub} -r ${parent_key_priv} -a ${attribution}
 
     # for duplication
-    tpm2_create -C ${primary_key_ctx} -G rsa -u ${parent_key_pub} -r ${parent_key_priv} -L ${parent_key_path}dpolicy.dat -a ${attribution_for_duplication}
-    tpm2_load -C ${primary_key_ctx} -u ${parent_key_pub} -r ${parent_key_priv} -c ${parent_key_ctx}
-    tpm2_readpublic -c ${parent_key_ctx} -o ${parent_key_path}dup.pub
+    tpm2_create ${tcti} -C ${primary_key_ctx} -G rsa -u ${parent_key_pub} -r ${parent_key_priv} -L ${parent_key_path}dpolicy.dat -a ${attribution_for_duplication}
+    tpm2_load ${tcti} -C ${primary_key_ctx} -u ${parent_key_pub} -r ${parent_key_priv} -c ${parent_key_ctx}
+    tpm2_readpublic ${tcti} -c ${parent_key_ctx} -o ${parent_key_path}dup.pub
     
     # mkdir -p ${child_key_path}
-    # tpm2_create -C ${parent_key_ctx} -G rsa -u ${child_key_pub} -r ${child_key_priv} -a ${attribution_for_duplication}
-    # tpm2_load -C ${parent_key_ctx} -u ${child_key_pub} -r ${child_key_priv} -c ${child_key_ctx}
+    # tpm2_create ${tcti} -C ${parent_key_ctx} -G rsa -u ${child_key_pub} -r ${child_key_priv} -a ${attribution_for_duplication}
+    # tpm2_load ${tcti} -C ${parent_key_ctx} -u ${child_key_pub} -r ${child_key_priv} -c ${child_key_ctx}
 else
     rm ${key4_path}/*
     echo please rerun to recreate ${parent_key_name}!

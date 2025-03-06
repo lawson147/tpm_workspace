@@ -19,10 +19,10 @@ case1() {
 
     # Encrypt using RSA
     echo "Hello RSA" > ${plain_pre}
-    tpm2_rsaencrypt -c ${this_key_ctx} -o ${cipher_txt} ${plain_pre}
+    tpm2_rsaencrypt ${tcti} -c ${this_key_ctx} -o ${cipher_txt} ${plain_pre}
 
     # Decrypt using RSA
-    tpm2_rsadecrypt -c ${this_key_ctx} -o ${plain_after} ${cipher_txt}
+    tpm2_rsadecrypt ${tcti} -c ${this_key_ctx} -o ${plain_after} ${cipher_txt}
     cat ${plain_after}
 }
 

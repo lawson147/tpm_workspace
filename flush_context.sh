@@ -1,0 +1,1 @@
+tpm2_flushcontext ${tcti} -t

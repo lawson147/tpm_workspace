@@ -27,7 +27,7 @@ fi
 
 # Load this key
 if [ ! -f ${this_key_ctx} ]; then
-    tpm2_load -C ${primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv} -c ${this_key_ctx}
+    tpm2_load ${tcti} -C ${primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv} -c ${this_key_ctx}
 else
     echo ${this_key_name} has been loaded!
 fi

@@ -1,8 +1,8 @@
 # This key1_sym is a symmetry key, under the primary key
 set -x
-
 source env.sh
-source key1_header.sh
+source tcti.sh
+source k1_header.sh
 
 this_key_path=${key1_path}
 this_key_name=${key1_name}
@@ -22,8 +22,8 @@ if [ ! -d ${this_key_path} ]; then
 fi
 
 
-if [ ! -f ${this_key_priv} ]; then
-    tpm2_create -C ${primary_key_ctx} -G aes128 -u ${this_key_pub} -r ${this_key_priv}
-else
-    echo ${this_key_name} has been existed!
-fi
+# if [ ! -f ${this_key_priv} ]; then
+    tpm2_create ${tcti} -C ${primary_key_ctx} -G aes128 -u ${this_key_pub} -r ${this_key_priv}
+# else
+    # echo ${this_key_name} has been existed!
+# fi

@@ -1,7 +1,7 @@
 tpm_workspace=/home/lawsonzhang/tpm_workspace/keys/
 
 # primary key path
-parent_key_dir=owner_hierarchy/
+parent_key_dir=primary_hierarchy/
 parent_key_path=${tpm_workspace}${parent_key_dir}
 
 # primary key

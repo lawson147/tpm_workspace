@@ -1,0 +1,1 @@
+tcti=" -T device:/dev/tpm0 "

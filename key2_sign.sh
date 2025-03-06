@@ -20,8 +20,8 @@ case1() {
 
     echo "my message" >message.dat
     set -x
-    tpm2_sign -c ${this_key_ctx} -g sha256 -o ${sig} ${plain}
-    tpm2_verifysignature -c ${this_key_ctx} -g sha256 -s ${sig} -m ${plain}
+    tpm2_sign ${tcti} -c ${this_key_ctx} -g sha256 -o ${sig} ${plain}
+    tpm2_verifysignature ${tcti} -c ${this_key_ctx} -g sha256 -s ${sig} -m ${plain}
     set +x
 }
 
@@ -43,11 +43,11 @@ case2() {
     sha256sum ${data_plain} | awk '{ print "000000 " $1 }' | xxd -r -c 32 > ${data_digest}
 
     # Thirdly load the private key from the external for signing
-    tpm2_loadexternal -Q -G ecc -r ${open_priv_key} -c ${key_ctx}
+    tpm2_loadexternal ${tcti} -Q -G ecc -r ${open_priv_key} -c ${key_ctx}
 
     # Sign in the TPM and verify with OSSL
     set -x
-    tpm2_sign -Q -c ${key_ctx} -g sha256 -d -f plain -o ${data_signed} ${data_digest}
+    tpm2_sign ${tcti} -Q -c ${key_ctx} -g sha256 -d -f plain -o ${data_signed} ${data_digest}
     openssl dgst -verify ${open_pub_key} -keyform pem -sha256 -signature ${data_signed} ${data_plain}
 }
 

@@ -25,7 +25,7 @@ fi
 
 # Create ak
 if [ -f ${attestation_key_ctx} ]; then
-    tpm2_createak -C ${endorsement_key_ctx} -c ${attestation_key_ctx} -u ${attestation_key_pub} -s rsassa -p akpass -n ak.name > ak.out
+    tpm2_createak ${tcti} -C ${endorsement_key_ctx} -c ${attestation_key_ctx} -u ${attestation_key_pub} -s rsassa -p akpass -n ak.name > ak.out
 
     file_size=`ls -l ak.name | awk {'print $5'}`
     # loaded_key_name=`cat ak.name | xxd -p -c $file_size`

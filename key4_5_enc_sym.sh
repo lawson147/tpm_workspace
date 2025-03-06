@@ -12,6 +12,6 @@ rm secret.*
 # Prepare and do it
 echo "Hello World" > secret.txt
 
-tpm2_encryptdecrypt -c ${this_key_ctx} -o ${enc} ${plain}
-tpm2_encryptdecrypt -d -c ${this_key_ctx} -o ${dec} ${enc}
+tpm2_encryptdecrypt ${tcti} -c ${this_key_ctx} -o ${enc} ${plain}
+tpm2_encryptdecrypt ${tcti} -d -c ${this_key_ctx} -o ${dec} ${enc}
 cat ${dec}
