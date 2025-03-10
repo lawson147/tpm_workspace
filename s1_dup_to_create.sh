@@ -24,7 +24,7 @@ fi
 
 
 if [ ! -f ${this_key_priv} ]; then
-    tpm2_create ${tcti} -C ${lawson_primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv} -L policy.dat
+    tpm2_create ${tcti} -C ${lawson_primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv}
 else
     echo ${this_key_name} has been existed!
 fi

@@ -1,4 +1,5 @@
 source env.sh
+source tcti.sh
 source duplicate_header.sh
 
 set -x
@@ -55,7 +56,7 @@ fi
 
 if [ $1 == 3 ]; then
     tpm2_startauthsession ${tcti} -S ${key4_path}session.dat
-    tpm2_policycommandcode ${tcti} -S ${key4_path}session.dat -L ${key4_path}dpolicy.dat TPM2_CC ${tcti}_Duplicate
+    tpm2_policycommandcode ${tcti} -S ${key4_path}session.dat -L ${key4_path}dpolicy.dat TPM2_CC_Duplicate
     ls -l ${key4_path}session.dat | awk '{print $5}'
     tpm2_flushcontext ${tcti} ${key4_path}session.dat
     rm ${key4_path}session.dat
@@ -63,7 +64,7 @@ fi
 
 if [ $1 == 4 ]; then
     tpm2_startauthsession ${tcti} --policy-session -S ${key4_path}session.dat
-    tpm2_policycommandcode ${tcti} -S ${key4_path}session.dat -L ${key4_path}dpolicy.dat TPM2_CC ${tcti}_Duplicate
+    tpm2_policycommandcode ${tcti} -S ${key4_path}session.dat -L ${key4_path}dpolicy.dat TPM2_CC_Duplicate
     tpm2_loadexternal ${tcti} -C o -u ${key4_path}key104.pub -c ${key4_path}key104.ctx
     exit 1
 fi
