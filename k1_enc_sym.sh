@@ -1,5 +1,6 @@
 set -x
 source env.sh
+source tcti.sh
 source k1_header.sh
 
 # related files

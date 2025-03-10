@@ -8,6 +8,7 @@ source tcti.sh
 
 # if [ ! -f ${primary_key_ctx} ]; then
     tpm2_createprimary ${tcti} -c ${primary_key_ctx} -f ${format} -o ${cretificate}
+    # tpm2_createprimary ${tcti} -v
 # else
     # echo ${primary_key_name} has been existed!
 # fi

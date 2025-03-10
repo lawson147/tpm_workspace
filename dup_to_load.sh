@@ -2,7 +2,7 @@
 set -x
 
 source env_of_lawson.sh
-source key104_header.sh
+source dup_to_header.sh
 
 this_key_path=${key104_path}
 this_key_name=${key104_name}

@@ -1,8 +1,8 @@
 source env.sh
-source key1_header.sh
-source key2_header.sh
-source key3_header.sh
-source key4_5_header.sh
+source k1_header.sh
+source k2_header.sh
+source k3_header.sh
+source dup_source_header.sh
 
 set -- 4
 

@@ -1,5 +1,6 @@
 set -x
-tpm_workspace=/home/lawsonzhang/tpm_workspace/
+source tcti.sh
+source env.sh
 
 # endorsment key
 endorsement_key_dir=endorsement_lawsonzhang/

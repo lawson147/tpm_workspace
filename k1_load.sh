@@ -1,4 +1,5 @@
 source env.sh
+source tcti.sh
 source k1_header.sh
 
 this_key_path=${key1_path}

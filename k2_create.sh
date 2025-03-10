@@ -1,13 +1,15 @@
-# This key3_asym is a asymmetric key to encrypt something, under the primary key
+# This key2_sign is a asymmetric key to sign some data, under the primary key
 source env.sh
-source key3_header.sh
-this_key_path=${key3_path}
-this_key_name=${key3_name}
+source tcti.sh
+source k2_header.sh
 
-this_key_path=${key3_path}
-this_key_ctx=${key3_ctx}
-this_key_pub=${key3_pub}
-this_key_priv=${key3_priv}
+this_key_path=${key2_path}
+this_key_name=${key2_name}
+
+this_key_path=${key2_path}
+this_key_ctx=${key2_ctx}
+this_key_pub=${key2_pub}
+this_key_priv=${key2_priv}
 
 if [ ! -f ${primary_key_ctx} ]; then
     echo Create primary_key firstly please!

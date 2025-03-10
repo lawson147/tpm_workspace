@@ -1,0 +1,1 @@
+tpm2_evictcontrol -C o -c $1
