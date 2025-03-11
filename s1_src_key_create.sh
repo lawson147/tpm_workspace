@@ -41,6 +41,8 @@ if [ ! -f ${parent_key_priv} ]; then
     tpm2_create ${tcti} -C ${primary_key_ctx} -G rsa -u ${parent_key_pub} -r ${parent_key_priv} -a ${attribution} -L policy.dat
     # load    
     tpm2_load ${tcti} -C ${primary_key_ctx} -u ${parent_key_pub} -r ${parent_key_priv} -c ${parent_key_ctx}
+    # very important
+    tpm2_readpublic -c ${parent_key_ctx} -o ${parent_key_path}dup.pub
     # child
     if [ ! -d ${child_key_path} ]; then
         mkdir ${child_key_path}
