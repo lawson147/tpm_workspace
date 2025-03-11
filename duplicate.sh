@@ -19,7 +19,7 @@ set -x
 
 # if [ $1 == 1 ]; then
 #     tpm2_startauthsession ${tcti} -S session.dat
-#     tpm2_policycommandcode ${tcti} -S session.dat -L policy.dat TPM2_CC ${tcti}_Duplicate
+#     tpm2_policycommandcode ${tcti} -S session.dat -L policy.dat TPM2_CC_Duplicate
 #     tpm2_flushcontext ${tcti} session.dat
 #     exit 0
 # fi
@@ -31,7 +31,7 @@ set -x
 
 # if [ $1 == 2 ]; then
 #     tpm2_startauthsession ${tcti} --policy-session -S session.dat
-#     tpm2_policycommandcode ${tcti} -S session.dat -L policy.dat TPM2_CC ${tcti}_Duplicate
+#     tpm2_policycommandcode ${tcti} -S session.dat -L policy.dat TPM2_CC_Duplicate
 #     tpm2_duplicate ${tcti} -C ${from_context} -c ${to_context} -G null -p "session:session.dat" -r duprv.bin -s seed.dat
 #     tpm2_flushcontext ${tcti} session.dat
 # fi
@@ -86,7 +86,7 @@ fi
 if [ $1 == 7 ];then
     # auth
     tpm2_startauthsession ${tcti} --policy-session -S session.dat
-    tpm2_policycommandcode ${tcti} -S session.dat -L ${key104_path}dpolicy.dat TPM2_CC ${tcti}_Duplicate
+    tpm2_policycommandcode ${tcti} -S session.dat -L ${key104_path}dpolicy.dat TPM2_CC_Duplicate
     tpm2_flushcontext ${tcti} --transient-object
 
     # import
