@@ -22,9 +22,10 @@ if [ ! -d ${this_key_path} ]; then
     mkdir ${this_key_path}
 fi
 
+dep_attribute="restricted|sensitivedataorigin|decrypt|userwithauth"
 
 if [ ! -f ${this_key_priv} ]; then
-    tpm2_create ${tcti} -C ${lawson_primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv}
+    tpm2_create ${tcti} -C ${lawson_primary_key_ctx} -u ${this_key_pub} -r ${this_key_priv} -a $dep_attribute
 else
     rm ${key104_path}/*
     echo please rerun to recreate ${this_key_name}!

@@ -5,8 +5,7 @@ set -x
 
 sub="|sensitivedataorigin|userwithauth"
 attribution="restricted|decrypt"${sub} # testing
-
-attribution_for_duplication="sensitivedataorigin|userwithauth|decrypt|sign"
+# attribution="sensitivedataorigin"
 
 source env.sh
 source tcti.sh
@@ -46,7 +45,7 @@ if [ ! -f ${parent_key_priv} ]; then
     if [ ! -d ${child_key_path} ]; then
         mkdir ${child_key_path}
     fi
-    tpm2_create ${tcti} -C ${parent_key_ctx} -G rsa -u ${child_key_pub} -r ${child_key_priv} -a ${attribution}
+    tpm2_create ${tcti} -C ${parent_key_ctx} -G rsa -u ${child_key_pub} -r ${child_key_priv} -a ${attribution} -L policy.dat
     # tpm2_load ${tcti} -C ${parent_key_ctx} -u ${child_key_pub} -r ${child_key_priv} -c ${child_key_ctx}
 else
     rm ${key4_path}/*
