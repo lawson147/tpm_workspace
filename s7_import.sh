@@ -16,6 +16,6 @@ tpm2_import ${tcti} -C ${key104_ctx} -u ${key4_path}dup.pub -i ${key4_path}dup.d
 tpm2_flushcontext ${tcti} --transient-object
 
 # for use    
-tpm2_load ${tcti} -C ${key104_ctx} -u ${key4_path}dup.pub -r ${key4_path}dup.prv -c ${key4_ctx}
+tpm2_load ${tcti} -C ${key104_ctx} -u ${key4_path}dup.pub -r ${key4_priv} -c ${key4_ctx}
 # tpm2_readpublic ${tcti} -c ${key4_ctx} -o tmp.file
 exit 1
