@@ -43,7 +43,9 @@ if [ ! -f ${parent_key_priv} ]; then
     # load    
     tpm2_load ${tcti} -C ${primary_key_ctx} -u ${parent_key_pub} -r ${parent_key_priv} -c ${parent_key_ctx}
     # child
-    mkdir ${child_key_path}
+    if [ ! -d ${child_key_path} ]; then
+        mkdir ${child_key_path}
+    fi
     tpm2_create ${tcti} -C ${parent_key_ctx} -G rsa -u ${child_key_pub} -r ${child_key_priv} -a ${attribution}
     # tpm2_load ${tcti} -C ${parent_key_ctx} -u ${child_key_pub} -r ${child_key_priv} -c ${child_key_ctx}
 else
