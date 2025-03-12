@@ -22,5 +22,6 @@ fi
 if [ ! -f ${this_key_priv} ]; then
     tpm2_create ${tcti} -C ${primary_key_ctx} -G rsa -u ${this_key_pub} -r ${this_key_priv}
 else
-    echo ${this_key_name} has been existed!
+    rm ${this_key_path}/*
+    echo please rerun to recreate ${this_key_name}!
 fi
