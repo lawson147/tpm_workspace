@@ -1,3 +1,4 @@
+set -x
 source env.sh
 source tcti.sh
 source duplicate_header.sh

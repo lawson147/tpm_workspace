@@ -13,3 +13,4 @@ scp -r ${key4_path}dup.pub tpm_server:${key4_path}dup.pub
 
 scp -r ${sig} tpm_server:${tpm_workspace}../
 scp -r ${enc} tpm_server:${tpm_workspace}../
+scp -r ${dat} tpm_server:${tpm_workspace}../
