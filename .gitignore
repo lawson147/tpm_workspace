@@ -1,1 +1,9 @@
 keys/
+
+*.msg
+*.enc
+*.dec
+
+*.dat
+*.sig
+session.dat
