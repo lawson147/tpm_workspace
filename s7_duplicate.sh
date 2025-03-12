@@ -10,3 +10,4 @@ tpm2_startauthsession \--policy-session -S session.dat
 tpm2_policycommandcode -S session.dat -L policy.dat TPM2_CC_Duplicate
 tpm2_duplicate ${tcti} -C ${key104_ctx} -c ${key4_ctx} -G null -r ${key4_path}dup.dpriv -s ${key4_path}dup.seed -p "session:session.dat"
 tpm2_flushcontext session.dat
+rm session.dat

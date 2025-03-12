@@ -10,7 +10,6 @@ ssh tpm_server "mkdir -p ${key4_path}"
 scp -r ${key4_path}dup.dpriv tpm_server:${key4_path}dup.dpriv
 scp -r ${key4_path}dup.seed tpm_server:${key4_path}dup.seed
 scp -r ${key4_path}dup.pub tpm_server:${key4_path}dup.pub
-scp -r ${cipher} tpm_server:${tpm_workspace}
 
-scp -r ${sig} tpm_server:${tpm_workspace}
-scp -r ${enc} tpm_server:${tpm_workspace}
+scp -r ${sig} tpm_server:${tpm_workspace}../
+scp -r ${enc} tpm_server:${tpm_workspace}../
