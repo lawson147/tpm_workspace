@@ -1,15 +1,17 @@
 rm *.pub
 rm *.priv
 rm *.ctx
+rm *.pem
 
-
-rm *.txt
-rm *.dat
-
+# encrypt
+rm *.msg
 rm *.dec
 rm *.enc
 
-rm *.pem
+# sign
+rm *.dat
+rm *.sig
+
 rm *.digest
 rm *.raw
 rm *.rssa

@@ -1,6 +1,8 @@
 source env.sh
 source tcti.sh
 source k2_header.sh
+source test.sh
+set -x
 
 this_key_path=${key2_path}
 this_key_name=${key2_name}
@@ -12,18 +14,9 @@ this_key_priv=${key2_priv}
 
 # case 1: Sign with the TPM and verify with OSSL
 case1() {
-    # related files
-    plain=message.dat
-    sig=sig.rssa
-
-    rm ${plain}
-    rm ${sig}
-
-    echo "my message" >message.dat
-    set -x
-    tpm2_sign ${tcti} -c ${this_key_ctx} -g sha256 -o ${sig} ${plain}
-    tpm2_verifysignature ${tcti} -c ${this_key_ctx} -g sha256 -s ${sig} -m ${plain}
-    set +x
+    echo "my message" > ${dat}
+    tpm2_sign ${tcti} -c ${this_key_ctx} -g sha256 -o ${sig} ${dat}
+    tpm2_verifysignature ${tcti} -c ${this_key_ctx} -g sha256 -s ${sig} -m ${dat}
 }
 
 # case 2: Sign with the TPM and verify with OSSL
