@@ -1,6 +1,6 @@
 # encrypt
 msg=msg.msg
-dnc=msg.dec
+dec=msg.dec
 enc=msg.enc
 
 # sign
