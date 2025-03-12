@@ -9,8 +9,9 @@ tpm2_load ${tcti} -C ${primary_key_ctx} -u ${key4_pub} -r ${key4_priv} -c ${key4
 # by the way, encrypt something with it
 plain_pre=msg.dat
 plain_after=msg.dec
-cipher_txt=msg.enc
+cipher=msg.enc
 
 # Encrypt using RSA
 echo "Hello RSA" > ${plain_pre}
-tpm2_rsaencrypt ${tcti} -c ${key4_ctx} -o ${cipher_txt} ${plain_pre}
+tpm2_rsaencrypt ${tcti} -c ${key4_ctx} -o ${cipher} ${plain_pre}
+rm ${plain_pre}
